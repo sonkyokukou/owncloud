@@ -9,7 +9,7 @@ Before starting ownCloud, fire up: docker run --name postgresql -d postgres
 
 Then link it to that database when you run ownCloud:
 
-docker run --link postgresql:db ...
+<code>docker run --link postgresql:db ...</code>
 How to run
 
 This is a full example, utilizing all options. But feel free to remove what you don't want.
