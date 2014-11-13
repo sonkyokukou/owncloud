@@ -10,27 +10,32 @@ Before starting ownCloud, fire up: docker run --name postgresql -d postgres
 Then link it to that database when you run ownCloud:
 
 <code>docker run --link postgresql:db ...</code>
+<br>
 How to run
 
 This is a full example, utilizing all options. But feel free to remove what you don't want.
 
-docker run -h my.domain.com -p 443:443 --name nginx --link postgresql:db -v /home/jchaney/files:/var/www/owncloud/data -v /home/jchaney/ssl:/root/ssl -e "SSL_KEY=/root/ssl/myssl.key" -e "SSL_CERT=/root/ssl/myssl.crt" jchaney/openresty-nginx
+<code>docker run -h my.domain.com -p 443:443 --name nginx --link postgresql:db -v /home/jchaney/files:/var/www/owncloud/data -v /home/jchaney/ssl:/root/ssl -e "SSL_KEY=/root/ssl/myssl.key" -e "SSL_CERT=/root/ssl/myssl.crt" jchaney/openresty-nginx</code>
+<br>
 Options
 Nginx Configuration
 
 Nginx runs on 80 OR 443 depending on whether or not you pass env variables for SSL. Make sure you expose one of these ports.
 
-docker run -p 80:80 ...
+<code>docker run -p 80:80 ...</code>
+<br>
 Persistent storage for datastore
 
 Attach host volume to /var/www/owncloud/data
 
-docker run -v /home/jchaney/myfiles:/var/www/owncloud/data ...
+<code>docker run -v /home/jchaney/myfiles:/var/www/owncloud/data ...</code>
+<br>
 SSL support
 
 You will need to attach a host volume containing your SSL key and cert, and pass the path to those in env variables SSL_KEY and SSL_CERT
 
-docker run -v /home/jchaney/ssl:/root/ssl -e "SSL_KEY=/root/ssl/myssl.key" -e "SSL_CERT=/root/ssl/myssl.crt" ...
+<code>docker run -v /home/jchaney/ssl:/root/ssl -e "SSL_KEY=/root/ssl/myssl.key" -e "SSL_CERT=/root/ssl/myssl.crt" ...</code>
+<br>
 Note
 
 Make sure to pass the -h option to Docker run with your FQDN if you want webdav to work. See full example above, under “how to run”.
