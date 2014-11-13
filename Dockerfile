@@ -1,4 +1,4 @@
-FROM		    ubuntu:14.04
+FROM	phusion/baseimage:latest
 MAINTAINER	Josh Chaney "josh@chaney.io"
 
 ADD         owncloud-7.0.1.tar.bz2 /var/www/
