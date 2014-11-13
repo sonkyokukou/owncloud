@@ -5,7 +5,8 @@ Database
 
 For a super easy setup, I would recommend using SQLite.. but if you need more performance, I would recommend linking to the “trusted” postgresql image.
 
-Before starting ownCloud, fire up: docker run --name postgresql -d postgres
+Before starting ownCloud, fire up: 
+<code>docker run --name postgresql -d postgres</code>
 
 Then link it to that database when you run ownCloud:
 
